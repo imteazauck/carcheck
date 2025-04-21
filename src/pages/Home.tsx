@@ -1,49 +1,34 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
+import "../index.css";
 
 const CarCheckLanding: React.FC = () => {
+  const features = [
+    "MOT History",
+    "Mileage Records",
+    "Insurance Write-Offs",
+    "Road Tax Status",
+    "Stolen Vehicle Check",
+    "Basic DVLA Info",
+  ];
+
   return (
-    
     <div className="min-h-screen bg-white text-gray-800 font-sans">
       {/* Navbar */}
-<nav className="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
-  <div className="flex items-center space-x-2">
-    <div className="bg-blue-600 p-2 rounded-full">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="24" height="24">
-        <path d="M5 16v-1a2 2 0 012-2h10a2 2 0 012 2v1h1a1 1 0 011 1v2a1 1 0 01-1 1h-1v1a1 1 0 11-2 0v-1H6v1a1 1 0 11-2 0v-1H3a1 1 0 01-1-1v-2a1 1 0 011-1h1zm2 0h10v-1a1 1 0 00-1-1H8a1 1 0 00-1 1v1zM7 5a1 1 0 000 2h10a1 1 0 000-2H7zm2 3a1 1 0 00-1 1v2h8V9a1 1 0 00-1-1H9z" />
-      </svg>
-    </div>
-    <span className="text-lg font-bold text-blue-700">CarCheck</span>
-  </div>
-</nav>
+      <nav className="bg-white shadow-sm flex justify-between items-center">
+      <div className="flex items-center space-x-2">
+  <img src="/logo.png" alt="CarVetting logo" className="w-16 h-16" />
+  <span className="text-2xl font-bold text-black-800">Car Vetting</span>
+</div>
+
+      </nav>
 
       {/* Hero Section */}
       <section className="bg-blue-700 text-white py-20 px-6 text-center relative overflow-hidden">
-
-        {/* Animated Logo */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto mb-6"
-        >
-          <div className="bg-white p-4 rounded-full inline-block shadow-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="blue"
-              viewBox="0 0 24 24"
-              width="48"
-              height="48"
-            >
-              <path d="M5 16v-1a2 2 0 012-2h10a2 2 0 012 2v1h1a1 1 0 011 1v2a1 1 0 01-1 1h-1v1a1 1 0 11-2 0v-1H6v1a1 1 0 11-2 0v-1H3a1 1 0 01-1-1v-2a1 1 0 011-1h1zm2 0h10v-1a1 1 0 00-1-1H8a1 1 0 00-1 1v1zM7 5a1 1 0 000 2h10a1 1 0 000-2H7zm2 3a1 1 0 00-1 1v2h8V9a1 1 0 00-1-1H9z" />
-            </svg>
-          </div>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold mb-3"
         >
           Free UK Car Check
@@ -86,14 +71,7 @@ const CarCheckLanding: React.FC = () => {
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
-          {[
-            'MOT History',
-            'Mileage Records',
-            'Insurance Write-Offs',
-            'Road Tax Status',
-            'Stolen Vehicle Check',
-            'Basic DVLA Info',
-          ].map((feature, i) => (
+          {features.map((feature, i) => (
             <motion.div
               key={feature}
               initial={{ opacity: 0, y: 10 }}
@@ -109,26 +87,26 @@ const CarCheckLanding: React.FC = () => {
       </section>
 
       {/* Sample Report Preview */}
-<section className="py-16 px-6 bg-gray-100 text-center">
-  <h2 className="text-2xl font-bold mb-6">Preview Your Free Report</h2>
-  <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-    Get detailed info on MOT history, mileage anomalies, insurance write-offs and more.
-  </p>
+      <section className="py-16 px-6 bg-gray-100 text-center">
+        <h2 className="text-2xl font-bold mb-6">Preview Your Free Report</h2>
+        <p className="text-gray-600 mb-8 max-w-xl mx-auto">
+          Get detailed info on MOT history, mileage anomalies, insurance write-offs and more.
+        </p>
 
-  {/* Placeholder image for report */}
-  <div className="flex justify-center">
-    <img
-      src="https://via.placeholder.com/600x350.png?text=Sample+Car+Report"
-      alt="Sample Car Report"
-      className="rounded-lg shadow-lg max-w-full"
-    />
-  </div>
-</section>
-{/* Footer */}
-<footer className="bg-blue-800 text-white text-center py-6 mt-12">
-  <p className="text-sm">© {new Date().getFullYear()} CarCheck. All rights reserved.</p>
-</footer>
+        <div className="flex justify-center">
+        <img
+  src="sample-report-preview.png"
+  alt="Sample Car Report"
+  className="rounded-lg shadow-lg max-w-full"
+/>
 
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-blue-800 text-white text-center py-6 mt-12">
+        <p className="text-sm">© {new Date().getFullYear()} CarVetting. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
