@@ -1,26 +1,39 @@
-// Features.tsx
-import React from 'react';
+import { FC } from 'react'
+import { Card, CardContent } from './Card' // Adjusted import path
 
-const features = [
-  'Mileage',
-  'MOT History',
-  'Damages',
-  'Internet History',
-  'Car Option List',
-  '88+ Extra Items',
-];
+interface Feature {
+  title: string
+  description: string
+}
 
-const Features: React.FC = () => (
-  <section className="py-12 bg-gray-100">
-    <h2 className="text-2xl font-bold text-center mb-8">We Check:</h2>
-    <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
-      {features.map((feature) => (
-        <div key={feature} className="bg-white p-4 shadow rounded">
-          {feature}
-        </div>
-      ))}
-    </div>
-  </section>
-);
+const features: Feature[] = [
+  {
+    title: 'Mileage Anomalies',
+    description: 'Flags major discrepancies in recorded mileage.'
+  },
+  {
+    title: 'Colour History',
+    description: 'Shows any past colour changes the vehicle has had.'
+  },
+  // …add others
+]
 
-export default Features;
+const Features: FC = () => (
+  <div className="grid gap-6 md:grid-cols-3 p-6">
+    {features.map(f => (
+      <Card
+        key={f.title}
+        className="transform transition hover:scale-105 group"
+      >
+        <CardContent>
+          <h3 className="font-semibold">{f.title}</h3>
+          <p className="mt-2 h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all text-sm">
+            {f.description}
+          </p>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+)
+
+export default Features

@@ -1,14 +1,16 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // Include all src files
-  ],
   theme: {
-    extend: {},
-  },
-  plugins: [],
-};
+    extend: {
+      colors: {
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        success: 'var(--color-success)',
+        error: 'var(--color-error)'
+      }
+    }
+  }
+}
 
-export default config;
+export default config
